@@ -28,6 +28,8 @@ public final class Cobranca implements Serializable {
 	private Date dataLiquidacao;
 	@JsonProperty("fl_status_recb")
 	private Integer status;
+	@JsonProperty("fl_pagamentopref_sac")
+	private Integer idFormaPagamento;
 	@JsonProperty("vl_total_recb")
 	private BigDecimal valorTotalRecebimento;
 	@JsonProperty("dt_cancelamento_recb")
@@ -114,7 +116,7 @@ public final class Cobranca implements Serializable {
 		this.dataRecebimento = dataRecebimento;
 	}
 
-	protected Date getDataLiquidacao() {
+	public Date getDataLiquidacao() {
 		return dataLiquidacao;
 	}
 
@@ -122,12 +124,20 @@ public final class Cobranca implements Serializable {
 		this.dataLiquidacao = dataLiquidacao;
 	}
 
-	protected Integer getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
 	protected void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public Integer getIdFormaPagamento() {
+		return idFormaPagamento;
+	}
+
+	protected void setIdFormaPagamento(Integer idFormaPagamento) {
+		this.idFormaPagamento = idFormaPagamento;
 	}
 
 	protected BigDecimal getValorTotalRecebimento() {
@@ -178,7 +188,7 @@ public final class Cobranca implements Serializable {
 		this.idNota = idNota;
 	}
 
-	protected String getLink2Via() {
+	public String getLink2Via() {
 		return link2Via;
 	}
 
@@ -290,7 +300,7 @@ public final class Cobranca implements Serializable {
 		this.valorEmitido = valorEmitido;
 	}
 
-	protected Date getDataVencimento() {
+	public Date getDataVencimento() {
 		return dataVencimento;
 	}
 

@@ -128,11 +128,11 @@ public final class Cliente implements Serializable {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	protected int getDiaVencimento() {
+	public int getDiaVencimento() {
 		return diaVencimento;
 	}
 
-	protected void setDiaVencimento(int diaVencimento) {
+	public void setDiaVencimento(int diaVencimento) {
 		this.diaVencimento = diaVencimento;
 	}
 

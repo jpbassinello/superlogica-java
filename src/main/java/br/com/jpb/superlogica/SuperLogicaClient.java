@@ -21,8 +21,8 @@ final class SuperLogicaClient {
 	private final String appToken;
 	private final String accessToken;
 	private final SuperLogicaApiVersion apiVersion = SuperLogicaApiVersion.V2;
-	private SuperLogicaEndpoint endpoint;
-	private Object[] pathParameters;
+	private String endpoint;
+	private String httpMethod;
 	private Entity<?> objectParameter;
 
 	private SuperLogicaClient(String appToken, String accessToken) {
@@ -36,8 +36,15 @@ final class SuperLogicaClient {
 
 	SuperLogicaClient withEndpoint(SuperLogicaEndpoint endpoint,
 			Object... pathParameters) {
-		this.endpoint = endpoint;
-		this.pathParameters = pathParameters;
+		this.endpoint = endpoint.getEndpoint(pathParameters);
+		this.httpMethod = endpoint.getHttpMethod();
+		return this;
+	}
+
+	SuperLogicaClient withDirectEndpointUrl(String directEndpointUrl,
+			String httpMethod) {
+		this.endpoint = directEndpointUrl;
+		this.httpMethod = httpMethod;
 		return this;
 	}
 
@@ -79,19 +86,19 @@ final class SuperLogicaClient {
 
 	private void reset() {
 		this.endpoint = null;
-		this.pathParameters = null;
+		this.httpMethod = null;
 		this.objectParameter = null;
 	}
 
 	private Response makeRequest() {
 		ResteasyClient client = buildClient();
-		ResteasyWebTarget target = client.target(
-				apiVersion.getFullUrl(endpoint.getEndpoint(pathParameters)));
+		ResteasyWebTarget target = client
+				.target(apiVersion.getFullUrl(endpoint));
 		Response response = target.request(MediaType.APPLICATION_JSON)
 				.header("Content-Type", "text/plain;charset=UTF-8")
 				.header("charset", "UTF-8").header("app_token", appToken)
 				.header("access_token", accessToken)
-				.method(endpoint.getHttpMethod(), objectParameter);
+				.method(httpMethod, objectParameter);
 		return response;
 	}
 

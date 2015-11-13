@@ -2,6 +2,7 @@ package br.com.jpb.superlogica;
 
 import java.util.List;
 
+import javax.ws.rs.HttpMethod;
 import javax.ws.rs.core.GenericType;
 
 import br.com.jpb.JsonUtil;
@@ -49,9 +50,12 @@ public final class SuperLogica {
 		}, SuperLogicaEndpoint.LISTA_CLIENTE_POR_ID);
 	}
 
-	public List<Cobranca> listarCobrancas() {
-		return listar(new GenericType<List<Cobranca>>() {
-		}, SuperLogicaEndpoint.LISTA_COBRANCAS);
+	public List<Cobranca> listarCobrancasPorClienteId(int idCliente) {
+		String endpoint = SuperLogicaEndpoint.LISTA_COBRANCAS.getEndpoint()
+				+ "?CLIENTES[0]=" + idCliente;
+		return client.withDirectEndpointUrl(endpoint, HttpMethod.GET)
+				.getResultList(new GenericType<List<Cobranca>>() {
+				});
 	}
 
 	public Cobranca cadastrarCobranca(Cobranca cobranca)
