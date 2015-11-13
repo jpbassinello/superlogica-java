@@ -62,6 +62,8 @@ public final class Cliente implements Serializable {
 	private Integer mesVencimentoCartao;
 	@JsonProperty("nm_anocartaovencimento_sac")
 	private Integer anoVencimentoCartao;
+	@JsonProperty("st_cartaobandeira_sac")
+	private String bandeiraCartao;
 	@JsonProperty("fl_desativar_sac")
 	private Integer desativar;
 	@JsonProperty("fl_status_sac")
@@ -86,14 +88,23 @@ public final class Cliente implements Serializable {
 	protected Cliente() {
 	}
 
-	public Cliente(String nomeOuRazaoSocial, String nomeFantasia,
+	private Cliente(String nomeOuRazaoSocial, String nomeFantasia,
 			int diaVencimento) {
 		this.nomeOuRazaoSocial = nomeOuRazaoSocial;
 		this.nomeFantasia = nomeFantasia;
 		this.diaVencimento = diaVencimento;
 	}
 
-	protected Integer getId() {
+	public static Cliente novoPf(String nome, int diaVencimento) {
+		return new Cliente(nome, null, diaVencimento);
+	}
+
+	public static Cliente novoPj(String razaoSocial, String nomeFantasia,
+			int diaVencimento) {
+		return new Cliente(razaoSocial, nomeFantasia, diaVencimento);
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
@@ -261,7 +272,7 @@ public final class Cliente implements Serializable {
 		this.desabilitarMensalidade = desabilitarMensalidade;
 	}
 
-	protected String getNumeroCartao() {
+	public String getNumeroCartao() {
 		return numeroCartao;
 	}
 
@@ -269,7 +280,7 @@ public final class Cliente implements Serializable {
 		this.numeroCartao = numeroCartao;
 	}
 
-	protected Integer getMesVencimentoCartao() {
+	public Integer getMesVencimentoCartao() {
 		return mesVencimentoCartao;
 	}
 
@@ -277,12 +288,20 @@ public final class Cliente implements Serializable {
 		this.mesVencimentoCartao = mesVencimentoCartao;
 	}
 
-	protected Integer getAnoVencimentoCartao() {
+	public Integer getAnoVencimentoCartao() {
 		return anoVencimentoCartao;
 	}
 
 	protected void setAnoVencimentoCartao(Integer anoVencimentoCartao) {
 		this.anoVencimentoCartao = anoVencimentoCartao;
+	}
+
+	public String getBandeiraCartao() {
+		return bandeiraCartao;
+	}
+
+	protected void setBandeiraCartao(String bandeiraCartao) {
+		this.bandeiraCartao = bandeiraCartao;
 	}
 
 	protected Integer getDesativar() {

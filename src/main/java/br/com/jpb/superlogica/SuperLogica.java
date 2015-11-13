@@ -9,6 +9,7 @@ import br.com.jpb.superlogica.model.Assinatura;
 import br.com.jpb.superlogica.model.Checkout;
 import br.com.jpb.superlogica.model.Cliente;
 import br.com.jpb.superlogica.model.Cobranca;
+import br.com.jpb.superlogica.model.FormaPagamento;
 import br.com.jpb.superlogica.model.RespostaCheckout;
 import br.com.jpb.superlogica.model.Retorno;
 
@@ -35,6 +36,12 @@ public final class SuperLogica {
 			throws SuperlogicaApiException {
 		return chamarOperacoesComRetorno(cliente, Cliente.class,
 				SuperLogicaEndpoint.EDICAO_CLIENTE);
+	}
+
+	public FormaPagamento cadastrarFormaPagamento(FormaPagamento formaPagamento)
+			throws SuperlogicaApiException {
+		return chamarOperacoesComRetorno(formaPagamento, FormaPagamento.class,
+				SuperLogicaEndpoint.FORMA_DE_PAGAMENTO_CLIENTE);
 	}
 
 	public Cliente listarClientePorId(int id) {
@@ -130,5 +137,4 @@ public final class SuperLogica {
 					retorno.getMsg());
 		}
 	}
-
 }

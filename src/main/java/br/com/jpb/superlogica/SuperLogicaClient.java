@@ -88,7 +88,8 @@ final class SuperLogicaClient {
 		ResteasyWebTarget target = client.target(
 				apiVersion.getFullUrl(endpoint.getEndpoint(pathParameters)));
 		Response response = target.request(MediaType.APPLICATION_JSON)
-				.header("app_token", appToken)
+				.header("Content-Type", "text/plain;charset=UTF-8")
+				.header("charset", "UTF-8").header("app_token", appToken)
 				.header("access_token", accessToken)
 				.method(endpoint.getHttpMethod(), objectParameter);
 		return response;

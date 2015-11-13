@@ -88,11 +88,30 @@ public final class Checkout implements Serializable {
 		this.bandeiraCartao = bandeiraCartao;
 	}
 
+	public static Checkout novoCheckoutComBoleto(int idPlano, Cliente cliente,
+			String senha, String confirmacaoSenha) {
+		return novoCheckoutComBoleto(idPlano, cliente.getNomeOuRazaoSocial(),
+				cliente.getEmail(), senha, confirmacaoSenha,
+				cliente.getCpfCnpj(), cliente.getTelefone());
+	}
+
 	public static Checkout novoCheckoutComBoleto(int idPlano,
 			String nomeOuRazaoSocial, String email, String senha,
 			String confirmacaoSenha, String cpfCnpj, String telefone) {
 		return new Checkout(idPlano, nomeOuRazaoSocial, email, PAGAMENTO_BOLETO,
 				senha, confirmacaoSenha, cpfCnpj, telefone);
+	}
+
+	public static Checkout novoCheckoutComCartao(int idPlano, Cliente cliente,
+			String senha, String confirmacaoSenha, String numeroCartao,
+			Integer mesVencimentoCartao, Integer anoVencimentoCartao,
+			Integer codigoSegurancaCartao, String nomeImpressoCartao,
+			String bandeiraCartao) {
+		return new Checkout(idPlano, cliente.getNomeOuRazaoSocial(),
+				cliente.getEmail(), PAGAMENTO_CARTAO_CREDITO, senha,
+				confirmacaoSenha, numeroCartao, mesVencimentoCartao,
+				anoVencimentoCartao, codigoSegurancaCartao, nomeImpressoCartao,
+				bandeiraCartao, cliente.getCpfCnpj(), cliente.getTelefone());
 	}
 
 	public static Checkout novoCheckoutComCartao(int idPlano,

@@ -7,6 +7,7 @@ public enum SuperLogicaEndpoint {
 	CADASTRO_CLIENTE("/financeiro/clientes", HttpMethod.POST),
 	EDICAO_CLIENTE("/financeiro/clientes", HttpMethod.PUT),
 	LISTA_CLIENTE_POR_ID("/financeiro/clientes/%s", HttpMethod.GET),
+	FORMA_DE_PAGAMENTO_CLIENTE("financeiro/clientes/formadepagamento", HttpMethod.PUT),
 	LISTA_COBRANCAS("/financeiro/cobranca", HttpMethod.GET),
 	CADASTRO_COBRANCA("/financeiro/cobranca", HttpMethod.POST),
 	EDICAO_COBRANCA("/financeiro/cobranca", HttpMethod.PUT),

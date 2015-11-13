@@ -27,10 +27,19 @@ public final class Assinatura implements Serializable {
 	protected Assinatura() {
 	}
 
-	public Assinatura(int idCliente, int idPlano, Date dataContratacao) {
+	private Assinatura(int idCliente, int idPlano, Date dataContratacao) {
 		this.idCliente = idCliente;
 		this.idPlano = idPlano;
 		this.dataContratacao = dataContratacao;
+	}
+
+	public static Assinatura assinaturaHoje(int idCliente, int idPlano) {
+		return new Assinatura(idCliente, idPlano, new Date());
+	}
+
+	public static Assinatura assinaturaComData(int idCliente, int idPlano,
+			Date data) {
+		return new Assinatura(idCliente, idPlano, data);
 	}
 
 	protected int getIdCliente() {
