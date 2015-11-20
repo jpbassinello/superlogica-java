@@ -1,9 +1,11 @@
 package br.com.jpb.superlogica;
 
+import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import javax.ws.rs.Encoded;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.GenericType;
@@ -16,7 +18,10 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 
+@Encoded
 final class SuperLogicaClient {
+
+	private static final String DEFAULT_CHARSET = "UTF-8";
 
 	private final String appToken;
 	private final String accessToken;
@@ -51,7 +56,10 @@ final class SuperLogicaClient {
 	<T> SuperLogicaClient withObjectParameter(T t,
 			boolean upperCaseParameterKeys) {
 		final Form form = new Form();
-		this.objectParameter = Entity.form(form);
+		Annotation[] annotations = new Annotation[1];
+		annotations[0] = this.getClass().getAnnotation(Encoded.class);
+		this.objectParameter = (Entity<Form>) Entity.entity(form,
+				MediaType.APPLICATION_FORM_URLENCODED_TYPE, annotations);
 
 		ObjectMapper mapper = new ObjectMapper();
 		TypeReference<HashMap<String, String>> typeRef = new TypeReference<HashMap<String, String>>() {
@@ -95,8 +103,10 @@ final class SuperLogicaClient {
 		ResteasyWebTarget target = client
 				.target(apiVersion.getFullUrl(endpoint));
 		Response response = target.request(MediaType.APPLICATION_JSON)
-				.header("Content-Type", "text/plain;charset=UTF-8")
-				.header("charset", "UTF-8").header("app_token", appToken)
+				.header("Content-Type", "text/plain;charset=" + DEFAULT_CHARSET)
+				.header("charset", DEFAULT_CHARSET)
+				.header("Content-Encoding", DEFAULT_CHARSET)
+				.header("app_token", appToken)
 				.header("access_token", accessToken)
 				.method(httpMethod, objectParameter);
 		return response;

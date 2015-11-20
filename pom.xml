@@ -5,7 +5,7 @@
 	<groupId>br.com.jpb</groupId>
 	<artifactId>superlogica-java</artifactId>
 	<packaging>jar</packaging>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<name>superlogica-java</name>
 	<description>Superlógica API (http://superlogica.com/) JAVA Client</description>
 	<url>https://github.com/jpbassinello/superlogica-java</url>

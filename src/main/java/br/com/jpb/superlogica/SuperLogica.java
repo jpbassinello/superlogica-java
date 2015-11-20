@@ -141,4 +141,17 @@ public final class SuperLogica {
 					retorno.getMsg());
 		}
 	}
+
+	public static void main(String[] args) {
+		String SUPERLOGICA_APP_TOKEN = "IZsWkueenVpn";
+		String SUPERLOGICA_ACCESS_TOKEN = "omPkbM2FhgUP";
+
+		try {
+			new SuperLogica(SUPERLOGICA_APP_TOKEN, SUPERLOGICA_ACCESS_TOKEN)
+					.cadastarCliente(Cliente.novoPf("Júlio Araújo", 15));
+		} catch (SuperlogicaApiException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
