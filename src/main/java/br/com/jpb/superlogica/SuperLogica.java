@@ -3,7 +3,8 @@ package br.com.jpb.superlogica;
 import java.util.List;
 
 import javax.ws.rs.HttpMethod;
-import javax.ws.rs.core.GenericType;
+
+import com.sun.jersey.api.client.GenericType;
 
 import br.com.jpb.JsonUtil;
 import br.com.jpb.superlogica.model.Assinatura;
