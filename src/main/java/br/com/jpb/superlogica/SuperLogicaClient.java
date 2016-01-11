@@ -93,7 +93,7 @@ final class SuperLogicaClient {
 	private void reset() {
 		this.endpoint = null;
 		this.httpMethod = null;
-		this.mapParameters = null;
+		this.mapParameters = new MultivaluedMapImpl();
 	}
 
 	private ClientResponse makeRequest() {
