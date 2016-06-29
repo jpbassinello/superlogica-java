@@ -332,7 +332,7 @@ public final class Cliente implements Serializable {
 		return dataCadastro;
 	}
 
-	protected void setDataCadastro(Date dataCadastro) {
+	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 
