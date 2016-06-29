@@ -4,3 +4,5 @@
 /.project
 /src/main/resources/rebel.xml
 /src/main/java/rebel.xml
+.idea
+superlogica-java.iml
