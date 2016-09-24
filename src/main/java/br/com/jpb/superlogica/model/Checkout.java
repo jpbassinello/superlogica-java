@@ -2,6 +2,7 @@ package br.com.jpb.superlogica.model;
 
 import br.com.jpb.JsonUtil;
 import lombok.Getter;
+import lombok.Setter;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
@@ -9,6 +10,7 @@ import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
+@Setter
 public final class Checkout implements Serializable {
 	private static final int PAGAMENTO_BOLETO = 0;
 	private static final int PAGAMENTO_CARTAO_CREDITO = 3;

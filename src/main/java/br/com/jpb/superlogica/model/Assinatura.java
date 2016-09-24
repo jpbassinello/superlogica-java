@@ -4,6 +4,7 @@ import br.com.jpb.JsonUtil;
 import br.com.jpb.jackson.databind.CustomLocalDateDeserializer;
 import br.com.jpb.jackson.databind.CustomLocalDateSerializer;
 import lombok.Getter;
+import lombok.Setter;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
@@ -14,6 +15,7 @@ import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
+@Setter
 public final class Assinatura implements Serializable {
 
 	@JsonProperty("id_planocliente_plc")

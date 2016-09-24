@@ -2,6 +2,7 @@ package br.com.jpb.superlogica.model;
 
 import br.com.jpb.JsonUtil;
 import lombok.Getter;
+import lombok.Setter;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
+@Setter
 public final class RespostaCheckout implements Serializable {
 	@JsonProperty("id_plano_pla")
 	private int idPlano;
