@@ -15,18 +15,6 @@ public final class SuperLogica {
 		this.client = SuperLogicaClient.build(appToken, accessToken);
 	}
 
-	public static void main(String[] args) {
-		String SUPERLOGICA_APP_TOKEN = "IZsWkueenVpn";
-		String SUPERLOGICA_ACCESS_TOKEN = "omPkbM2FhgUP";
-
-		try {
-			new SuperLogica(SUPERLOGICA_APP_TOKEN, SUPERLOGICA_ACCESS_TOKEN)
-					.cadastarCliente(Cliente.novoPf("Júlio Araújo", 15));
-		} catch (SuperlogicaApiException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public List<Cliente> listarClientes() {
 		return listar(new GenericType<List<Cliente>>() {}, SuperLogicaEndpoint.LISTA_CLIENTES);
 	}
@@ -72,6 +60,12 @@ public final class SuperLogica {
 
 	public Assinatura assinarPlano(Assinatura assinatura) throws SuperlogicaApiException {
 		return chamarOperacoesComRetorno(assinatura, Assinatura.class, SuperLogicaEndpoint.CONTRATACAO_ASSINATURA);
+	}
+
+	public CancelarAssinatura cancelarAssinatura(CancelarAssinatura cancelarAssinatura) throws
+			SuperlogicaApiException {
+		return chamarOperacoesComRetorno(cancelarAssinatura, CancelarAssinatura.class,
+				SuperLogicaEndpoint.CANCELAMENTO_ASSINATURA);
 	}
 
 	public RespostaCheckout fazerCheckoutPlano(Checkout checkout) throws SuperlogicaApiException {

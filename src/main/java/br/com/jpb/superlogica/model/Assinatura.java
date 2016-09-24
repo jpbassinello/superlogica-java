@@ -16,14 +16,22 @@ import java.util.Date;
 @Getter
 public final class Assinatura implements Serializable {
 
+	@JsonProperty("id_planocliente_plc")
+	private int idAssinatura;
+
 	@JsonProperty("planos[0][id_sacado_sac]")
 	private int idCliente;
+
 	@JsonProperty("planos[0][id_plano_pla]")
 	private int idPlano;
+
 	@JsonProperty("planos[0][dt_contrato_plc]")
 	@JsonDeserialize(using = CustomLocalDateDeserializer.class)
 	@JsonSerialize(using = CustomLocalDateSerializer.class)
 	private Date dataContratacao;
+
+	@JsonProperty("planos[0][fl_notificarcliente]")
+	private int flNotificarCliente = 0;
 
 	protected Assinatura() {
 	}
@@ -40,6 +48,11 @@ public final class Assinatura implements Serializable {
 
 	public static Assinatura assinaturaComData(int idCliente, int idPlano, Date data) {
 		return new Assinatura(idCliente, idPlano, data);
+	}
+
+	public Assinatura comNotificacaoAoCliente() {
+		this.flNotificarCliente = 1;
+		return this;
 	}
 
 	@Override

@@ -14,12 +14,13 @@ public enum SuperLogicaEndpoint {
 	LISTA_COBRANCA_POR_ID("/financeiro/cobranca/%s", HttpMethod.GET),
 	LIQUIDACAO_COBRANCA("financeiro/cobranca/liquidar", HttpMethod.PUT),
 	CONTRATACAO_ASSINATURA("/financeiro/assinaturas", HttpMethod.POST),
+	CANCELAMENTO_ASSINATURA("/financeiro/assinaturas", HttpMethod.PUT),
 	CHECKOUT("/financeiro/checkout", HttpMethod.POST);
 
 	private final String endpoint;
 	private final String httpMethod;
 
-	private SuperLogicaEndpoint(String endpoint, String httpMethod) {
+	SuperLogicaEndpoint(String endpoint, String httpMethod) {
 		this.endpoint = endpoint;
 		this.httpMethod = httpMethod;
 	}
