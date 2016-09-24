@@ -1,14 +1,15 @@
 package br.com.jpb.superlogica.model;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-
+import br.com.jpb.JsonUtil;
+import lombok.Getter;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
-import br.com.jpb.JsonUtil;
+import java.io.Serializable;
+import java.math.BigDecimal;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
 public final class RespostaCheckout implements Serializable {
 	@JsonProperty("id_plano_pla")
 	private int idPlano;
@@ -36,94 +37,6 @@ public final class RespostaCheckout implements Serializable {
 	protected RespostaCheckout() {
 	}
 
-	protected int getIdPlano() {
-		return idPlano;
-	}
-
-	protected void setIdPlano(int idPlano) {
-		this.idPlano = idPlano;
-	}
-
-	protected String getNomeOuRazaoSocial() {
-		return nomeOuRazaoSocial;
-	}
-
-	protected void setNomeOuRazaoSocial(String nomeOuRazaoSocial) {
-		this.nomeOuRazaoSocial = nomeOuRazaoSocial;
-	}
-
-	protected String getNomeFantasia() {
-		return nomeFantasia;
-	}
-
-	protected void setNomeFantasia(String nomeFantasia) {
-		this.nomeFantasia = nomeFantasia;
-	}
-
-	protected String getCpfCnpj() {
-		return cpfCnpj;
-	}
-
-	protected void setCpfCnpj(String cpfCnpj) {
-		this.cpfCnpj = cpfCnpj;
-	}
-
-	protected String getEmail() {
-		return email;
-	}
-
-	protected void setEmail(String email) {
-		this.email = email;
-	}
-
-	protected String getTelefone() {
-		return telefone;
-	}
-
-	protected void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	protected BigDecimal getValorPrimeiraCobranca() {
-		return valorPrimeiraCobranca;
-	}
-
-	protected void setValorPrimeiraCobranca(BigDecimal valorPrimeiraCobranca) {
-		this.valorPrimeiraCobranca = valorPrimeiraCobranca;
-	}
-
-	protected String getLinkBoleto() {
-		return linkBoleto;
-	}
-
-	protected void setLinkBoleto(String linkBoleto) {
-		this.linkBoleto = linkBoleto;
-	}
-
-	protected BigDecimal getValorBoleto() {
-		return valorBoleto;
-	}
-
-	protected void setValorBoleto(BigDecimal valorBoleto) {
-		this.valorBoleto = valorBoleto;
-	}
-
-	protected String getUrlCallback() {
-		return urlCallback;
-	}
-
-	protected void setUrlCallback(String urlCallback) {
-		this.urlCallback = urlCallback;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-	
-	protected void setMsg(String msg) {
-		this.msg = msg;
-	}
-	
 	@Override
 	public String toString() {
 		return JsonUtil.serialize(this);

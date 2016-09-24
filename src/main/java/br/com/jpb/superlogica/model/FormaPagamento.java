@@ -1,13 +1,14 @@
 package br.com.jpb.superlogica.model;
 
-import java.io.Serializable;
-
+import br.com.jpb.JsonUtil;
+import lombok.Getter;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
-import br.com.jpb.JsonUtil;
+import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
 public final class FormaPagamento implements Serializable {
 	@JsonProperty("id_sacado_sac")
 	private int idCliente;
@@ -29,10 +30,10 @@ public final class FormaPagamento implements Serializable {
 	protected FormaPagamento() {
 	}
 
-	public static FormaPagamento novaFormaCartaoCredito(int idCliente,
-			String numeroCartao, Integer mesVencimentoCartao,
-			Integer anoVencimentoCartao, Integer codigoSegurancaCartao,
-			String nomeImpressoCartao, String bandeiraCartao) {
+	public static FormaPagamento novaFormaCartaoCredito(int idCliente, String numeroCartao, Integer
+			mesVencimentoCartao,
+			Integer anoVencimentoCartao, Integer codigoSegurancaCartao, String nomeImpressoCartao,
+			String bandeiraCartao) {
 		FormaPagamento formaPagamento = new FormaPagamento();
 		formaPagamento.idCliente = idCliente;
 		formaPagamento.flgPagamentoPref = 3;
@@ -52,70 +53,6 @@ public final class FormaPagamento implements Serializable {
 		formaPagamento.flgPagamentoPref = 0;
 
 		return formaPagamento;
-	}
-
-	protected int getIdCliente() {
-		return idCliente;
-	}
-
-	protected void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
-	}
-
-	protected int getFlgPagamentoPref() {
-		return flgPagamentoPref;
-	}
-
-	protected void setFlgPagamentoPref(int flgPagamentoPref) {
-		this.flgPagamentoPref = flgPagamentoPref;
-	}
-
-	protected String getNumeroCartao() {
-		return numeroCartao;
-	}
-
-	protected void setNumeroCartao(String numeroCartao) {
-		this.numeroCartao = numeroCartao;
-	}
-
-	protected Integer getMesVencimentoCartao() {
-		return mesVencimentoCartao;
-	}
-
-	protected void setMesVencimentoCartao(Integer mesVencimentoCartao) {
-		this.mesVencimentoCartao = mesVencimentoCartao;
-	}
-
-	protected Integer getAnoVencimentoCartao() {
-		return anoVencimentoCartao;
-	}
-
-	protected void setAnoVencimentoCartao(Integer anoVencimentoCartao) {
-		this.anoVencimentoCartao = anoVencimentoCartao;
-	}
-
-	protected Integer getCodigoSegurancaCartao() {
-		return codigoSegurancaCartao;
-	}
-
-	protected void setCodigoSegurancaCartao(Integer codigoSegurancaCartao) {
-		this.codigoSegurancaCartao = codigoSegurancaCartao;
-	}
-
-	protected String getNomeImpressoCartao() {
-		return nomeImpressoCartao;
-	}
-
-	protected void setNomeImpressoCartao(String nomeImpressoCartao) {
-		this.nomeImpressoCartao = nomeImpressoCartao;
-	}
-
-	protected String getBandeiraCartao() {
-		return bandeiraCartao;
-	}
-
-	protected void setBandeiraCartao(String bandeiraCartao) {
-		this.bandeiraCartao = bandeiraCartao;
 	}
 
 	@Override

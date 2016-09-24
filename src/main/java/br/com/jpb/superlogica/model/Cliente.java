@@ -1,18 +1,19 @@
 package br.com.jpb.superlogica.model;
 
-import java.io.Serializable;
-import java.util.Date;
-
+import br.com.jpb.JsonUtil;
+import br.com.jpb.jackson.databind.CustomLocalDateDeserializer;
+import br.com.jpb.jackson.databind.CustomLocalDateSerializer;
+import lombok.Getter;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
-import br.com.jpb.JsonUtil;
-import br.com.jpb.jackson.databind.CustomLocalDateDeserializer;
-import br.com.jpb.jackson.databind.CustomLocalDateSerializer;
+import java.io.Serializable;
+import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
 public final class Cliente implements Serializable {
 	@JsonProperty("id_sacado_sac")
 	private Integer id;
@@ -88,8 +89,7 @@ public final class Cliente implements Serializable {
 	protected Cliente() {
 	}
 
-	private Cliente(String nomeOuRazaoSocial, String nomeFantasia,
-			int diaVencimento) {
+	private Cliente(String nomeOuRazaoSocial, String nomeFantasia, int diaVencimento) {
 		this.nomeOuRazaoSocial = nomeOuRazaoSocial;
 		this.nomeFantasia = nomeFantasia;
 		this.diaVencimento = diaVencimento;
@@ -99,265 +99,8 @@ public final class Cliente implements Serializable {
 		return new Cliente(nome, null, diaVencimento);
 	}
 
-	public static Cliente novoPj(String razaoSocial, String nomeFantasia,
-			int diaVencimento) {
+	public static Cliente novoPj(String razaoSocial, String nomeFantasia, int diaVencimento) {
 		return new Cliente(razaoSocial, nomeFantasia, diaVencimento);
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	protected String getNomeOuRazaoSocial() {
-		return nomeOuRazaoSocial;
-	}
-
-	protected void setNomeOuRazaoSocial(String nomeOuRazaoSocial) {
-		this.nomeOuRazaoSocial = nomeOuRazaoSocial;
-	}
-
-	protected String getNomeFantasia() {
-		return nomeFantasia;
-	}
-
-	protected void setNomeFantasia(String nomeFantasia) {
-		this.nomeFantasia = nomeFantasia;
-	}
-
-	public int getDiaVencimento() {
-		return diaVencimento;
-	}
-
-	public void setDiaVencimento(int diaVencimento) {
-		this.diaVencimento = diaVencimento;
-	}
-
-	protected String getCpfCnpj() {
-		return cpfCnpj;
-	}
-
-	public void setCpfCnpj(String cpfCnpj) {
-		this.cpfCnpj = cpfCnpj;
-	}
-
-	protected String getRg() {
-		return rg;
-	}
-
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-
-	protected String getOrgaoExpedidor() {
-		return orgaoExpedidor;
-	}
-
-	public void setOrgaoExpedidor(String orgaoExpedidor) {
-		this.orgaoExpedidor = orgaoExpedidor;
-	}
-
-	protected String getInscricaoMunicipal() {
-		return inscricaoMunicipal;
-	}
-
-	protected void setInscricaoMunicipal(String inscricaoMunicipal) {
-		this.inscricaoMunicipal = inscricaoMunicipal;
-	}
-
-	protected String getInscricaoEstadual() {
-		return inscricaoEstadual;
-	}
-
-	protected void setInscricaoEstadual(String inscricaoEstadual) {
-		this.inscricaoEstadual = inscricaoEstadual;
-	}
-
-	protected String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	protected String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	protected String getCelular() {
-		return celular;
-	}
-
-	public void setCelular(String celular) {
-		this.celular = celular;
-	}
-
-	protected String getFax() {
-		return fax;
-	}
-
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
-
-	protected String getEndereco() {
-		return endereco;
-	}
-
-	protected void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-
-	protected String getNumero() {
-		return numero;
-	}
-
-	protected void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	protected String getComplemento() {
-		return complemento;
-	}
-
-	protected void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
-	protected String getBairro() {
-		return bairro;
-	}
-
-	protected void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	protected String getCidade() {
-		return cidade;
-	}
-
-	protected void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	protected String getEstado() {
-		return estado;
-	}
-
-	protected void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	protected String getCep() {
-		return cep;
-	}
-
-	protected void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	protected Integer getDesabilitarMensalidade() {
-		return desabilitarMensalidade;
-	}
-
-	protected void setDesabilitarMensalidade(Integer desabilitarMensalidade) {
-		this.desabilitarMensalidade = desabilitarMensalidade;
-	}
-
-	public String getNumeroCartao() {
-		return numeroCartao;
-	}
-
-	protected void setNumeroCartao(String numeroCartao) {
-		this.numeroCartao = numeroCartao;
-	}
-
-	public Integer getMesVencimentoCartao() {
-		return mesVencimentoCartao;
-	}
-
-	protected void setMesVencimentoCartao(Integer mesVencimentoCartao) {
-		this.mesVencimentoCartao = mesVencimentoCartao;
-	}
-
-	public Integer getAnoVencimentoCartao() {
-		return anoVencimentoCartao;
-	}
-
-	protected void setAnoVencimentoCartao(Integer anoVencimentoCartao) {
-		this.anoVencimentoCartao = anoVencimentoCartao;
-	}
-
-	public String getBandeiraCartao() {
-		return bandeiraCartao;
-	}
-
-	protected void setBandeiraCartao(String bandeiraCartao) {
-		this.bandeiraCartao = bandeiraCartao;
-	}
-
-	protected Integer getDesativar() {
-		return desativar;
-	}
-
-	protected void setDesativar(Integer desativar) {
-		this.desativar = desativar;
-	}
-
-	protected int getStatus() {
-		return status;
-	}
-
-	protected void setStatus(int status) {
-		this.status = status;
-	}
-
-	protected Date getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-
-	protected Date getDataCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
-
-	protected Date getDataAlteracao() {
-		return dataAlteracao;
-	}
-
-	protected void setDataAlteracao(Date dataAlteracao) {
-		this.dataAlteracao = dataAlteracao;
-	}
-
-	protected String getUrlFormaDePagamento() {
-		return urlFormaDePagamento;
-	}
-
-	protected void setUrlFormaDePagamento(String urlFormaDePagamento) {
-		this.urlFormaDePagamento = urlFormaDePagamento;
-	}
-
-	protected String getUrlAreaDoCliente() {
-		return urlAreaDoCliente;
-	}
-
-	protected void setUrlAreaDoCliente(String urlAreaDoCliente) {
-		this.urlAreaDoCliente = urlAreaDoCliente;
 	}
 
 	@Override

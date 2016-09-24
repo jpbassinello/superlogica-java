@@ -10,7 +10,6 @@ public final class DateTimeUtil {
 	}
 
 	public static Date fromLocalDate(LocalDate localDate) {
-		return Date.from(
-				localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 	}
 }

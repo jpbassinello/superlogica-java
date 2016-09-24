@@ -1,9 +1,9 @@
 package br.com.jpb;
 
-import java.io.IOException;
-
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;
+
+import java.io.IOException;
 
 public final class JsonUtil {
 	private JsonUtil() {
@@ -20,10 +20,7 @@ public final class JsonUtil {
 		try {
 			return objectMapper.writeValueAsString(o);
 		} catch (IOException e) {
-			throw new IllegalStateException(
-					"Falha ao serializar objeto do tipo "
-							+ o.getClass().getName(),
-					e);
+			throw new IllegalStateException("Falha ao serializar objeto do tipo " + o.getClass().getName(), e);
 		}
 	}
 }

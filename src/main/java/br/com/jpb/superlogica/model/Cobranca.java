@@ -1,19 +1,20 @@
 package br.com.jpb.superlogica.model;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-
+import br.com.jpb.JsonUtil;
+import br.com.jpb.jackson.databind.CustomLocalDateDeserializer;
+import br.com.jpb.jackson.databind.CustomLocalDateSerializer;
+import lombok.Getter;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
-import br.com.jpb.JsonUtil;
-import br.com.jpb.jackson.databind.CustomLocalDateDeserializer;
-import br.com.jpb.jackson.databind.CustomLocalDateSerializer;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
 public final class Cobranca implements Serializable {
 
 	@JsonProperty("id_recebimento_recb")
@@ -88,9 +89,8 @@ public final class Cobranca implements Serializable {
 	protected Cobranca() {
 	}
 
-	public Cobranca(int idCliente, int idProdutoOuServico, int quantidade,
-			BigDecimal valorUnitario, BigDecimal valorEmitido,
-			Date dataVencimento) {
+	public Cobranca(int idCliente, int idProdutoOuServico, int quantidade, BigDecimal valorUnitario,
+			BigDecimal valorEmitido, Date dataVencimento) {
 		super();
 		this.idCliente = idCliente;
 		this.idProdutoOuServico = idProdutoOuServico;
@@ -98,222 +98,6 @@ public final class Cobranca implements Serializable {
 		this.valorUnitario = valorUnitario;
 		this.valorEmitido = valorEmitido;
 		this.dataVencimento = dataVencimento;
-	}
-
-	protected Integer getId() {
-		return id;
-	}
-
-	protected void setId(Integer id) {
-		this.id = id;
-	}
-
-	protected Date getDataRecebimento() {
-		return dataRecebimento;
-	}
-
-	protected void setDataRecebimento(Date dataRecebimento) {
-		this.dataRecebimento = dataRecebimento;
-	}
-
-	public Date getDataLiquidacao() {
-		return dataLiquidacao;
-	}
-
-	protected void setDataLiquidacao(Date dataLiquidacao) {
-		this.dataLiquidacao = dataLiquidacao;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	protected void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public Integer getIdFormaPagamento() {
-		return idFormaPagamento;
-	}
-
-	protected void setIdFormaPagamento(Integer idFormaPagamento) {
-		this.idFormaPagamento = idFormaPagamento;
-	}
-
-	protected BigDecimal getValorTotalRecebimento() {
-		return valorTotalRecebimento;
-	}
-
-	protected void setValorTotalRecebimento(BigDecimal valorTotalRecebimento) {
-		this.valorTotalRecebimento = valorTotalRecebimento;
-	}
-
-	protected Date getDataCancelamento() {
-		return dataCancelamento;
-	}
-
-	protected void setDataCancelamento(Date dataCancelamento) {
-		this.dataCancelamento = dataCancelamento;
-	}
-
-	protected Date getDataGeracao() {
-		return dataGeracao;
-	}
-
-	protected void setDataGeracao(Date dataGeracao) {
-		this.dataGeracao = dataGeracao;
-	}
-
-	protected String getMd5() {
-		return md5;
-	}
-
-	protected void setMd5(String md5) {
-		this.md5 = md5;
-	}
-
-	protected Date getDataImpressao() {
-		return dataImpressao;
-	}
-
-	protected void setDataImpressao(Date dataImpressao) {
-		this.dataImpressao = dataImpressao;
-	}
-
-	protected String getIdNota() {
-		return idNota;
-	}
-
-	protected void setIdNota(String idNota) {
-		this.idNota = idNota;
-	}
-
-	public String getLink2Via() {
-		return link2Via;
-	}
-
-	protected void setLink2Via(String link2Via) {
-		this.link2Via = link2Via;
-	}
-
-	protected int getIdCliente() {
-		return idCliente;
-	}
-
-	protected void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
-	}
-
-	protected String getNomeOuRazaoSocial() {
-		return nomeOuRazaoSocial;
-	}
-
-	protected void setNomeOuRazaoSocial(String nomeOuRazaoSocial) {
-		this.nomeOuRazaoSocial = nomeOuRazaoSocial;
-	}
-
-	protected String getNomeFantasia() {
-		return nomeFantasia;
-	}
-
-	protected void setNomeFantasia(String nomeFantasia) {
-		this.nomeFantasia = nomeFantasia;
-	}
-
-	protected String getNumeroCartao() {
-		return numeroCartao;
-	}
-
-	protected void setNumeroCartao(String numeroCartao) {
-		this.numeroCartao = numeroCartao;
-	}
-
-	protected Integer getMesVencimentoCartao() {
-		return mesVencimentoCartao;
-	}
-
-	protected void setMesVencimentoCartao(Integer mesVencimentoCartao) {
-		this.mesVencimentoCartao = mesVencimentoCartao;
-	}
-
-	protected Integer getAnoVencimentoCartao() {
-		return anoVencimentoCartao;
-	}
-
-	protected void setAnoVencimentoCartao(Integer anoVencimentoCartao) {
-		this.anoVencimentoCartao = anoVencimentoCartao;
-	}
-
-	protected String getEmail() {
-		return email;
-	}
-
-	protected void setEmail(String email) {
-		this.email = email;
-	}
-
-	protected String getTelefone() {
-		return telefone;
-	}
-
-	protected void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	protected String getCep() {
-		return cep;
-	}
-
-	protected void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	protected int getIdProdutoOuServico() {
-		return idProdutoOuServico;
-	}
-
-	protected void setIdProdutoOuServico(int idProdutoOuServico) {
-		this.idProdutoOuServico = idProdutoOuServico;
-	}
-
-	protected int getQuantidade() {
-		return quantidade;
-	}
-
-	protected void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-
-	protected BigDecimal getValorUnitario() {
-		return valorUnitario;
-	}
-
-	protected void setValorUnitario(BigDecimal valorUnitario) {
-		this.valorUnitario = valorUnitario;
-	}
-
-	protected BigDecimal getValorEmitido() {
-		return valorEmitido;
-	}
-
-	protected void setValorEmitido(BigDecimal valorEmitido) {
-		this.valorEmitido = valorEmitido;
-	}
-
-	public Date getDataVencimento() {
-		return dataVencimento;
-	}
-
-	protected void setDataVencimento(Date dataVencimento) {
-		this.dataVencimento = dataVencimento;
-	}
-
-	protected Date getDataAlteracao() {
-		return dataAlteracao;
-	}
-
-	protected void setDataAlteracao(Date dataAlteracao) {
-		this.dataAlteracao = dataAlteracao;
 	}
 
 	public void liquidar(Date data, BigDecimal valorTotalRecebimento) {

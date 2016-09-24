@@ -1,18 +1,19 @@
 package br.com.jpb.superlogica.model;
 
-import java.io.Serializable;
-import java.util.Date;
-
+import br.com.jpb.JsonUtil;
+import br.com.jpb.jackson.databind.CustomLocalDateDeserializer;
+import br.com.jpb.jackson.databind.CustomLocalDateSerializer;
+import lombok.Getter;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
-import br.com.jpb.JsonUtil;
-import br.com.jpb.jackson.databind.CustomLocalDateDeserializer;
-import br.com.jpb.jackson.databind.CustomLocalDateSerializer;
+import java.io.Serializable;
+import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
 public final class Assinatura implements Serializable {
 
 	@JsonProperty("planos[0][id_sacado_sac]")
@@ -37,33 +38,8 @@ public final class Assinatura implements Serializable {
 		return new Assinatura(idCliente, idPlano, new Date());
 	}
 
-	public static Assinatura assinaturaComData(int idCliente, int idPlano,
-			Date data) {
+	public static Assinatura assinaturaComData(int idCliente, int idPlano, Date data) {
 		return new Assinatura(idCliente, idPlano, data);
-	}
-
-	protected int getIdCliente() {
-		return idCliente;
-	}
-
-	protected void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
-	}
-
-	protected int getIdPlano() {
-		return idPlano;
-	}
-
-	protected void setIdPlano(int idPlano) {
-		this.idPlano = idPlano;
-	}
-
-	protected Date getDataContratacao() {
-		return dataContratacao;
-	}
-
-	protected void setDataContratacao(Date dataContratacao) {
-		this.dataContratacao = dataContratacao;
 	}
 
 	@Override

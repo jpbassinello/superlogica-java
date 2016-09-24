@@ -1,13 +1,14 @@
 package br.com.jpb.superlogica.model;
 
-import java.io.Serializable;
-
+import br.com.jpb.JsonUtil;
+import lombok.Getter;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
-import br.com.jpb.JsonUtil;
+import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
 public final class Retorno implements Serializable {
 
 	@JsonProperty("status")
@@ -18,30 +19,6 @@ public final class Retorno implements Serializable {
 	private Object data;
 
 	protected Retorno() {
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	protected void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	protected void setMsg(String msg) {
-		this.msg = msg;
-	}
-
-	public Object getData() {
-		return data;
-	}
-
-	protected void setData(Object data) {
-		this.data = data;
 	}
 
 	public boolean isSucesso() {

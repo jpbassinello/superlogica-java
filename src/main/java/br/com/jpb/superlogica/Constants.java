@@ -4,13 +4,10 @@ import java.time.format.DateTimeFormatter;
 
 public final class Constants {
 
+	public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+	public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss");
+
 	private Constants() {
 	}
-
-	public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter
-			.ofPattern("MM/dd/yyyy");
-
-	public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter
-			.ofPattern("MM/dd/yyyy HH:mm:ss");
 
 }
